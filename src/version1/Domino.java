@@ -1,21 +1,25 @@
 package version1;
 public class Domino {
-    private int Flip1, Flip2;
+    private int Front, Back;
+    private int id = 1;
 
     public Domino(int Flip1, int Flip2){
-    this.Flip1 = Flip1;
-    this.Flip2 = Flip2;
+    this.Front = Front;
+    this.Back = Back;
+    id++;
     }
     public void flip(){
-
+    int ogFlip = Front;
     }
-
+    public String toString(){
+        return "[" + Front + "|" + Back + "]";
+    }
     /**
      * Getter method
      * @return
      */
     public int getFlip1(){
-        return Flip1;
+        return Front;
     }
 
     /**
@@ -23,6 +27,6 @@ public class Domino {
      * @return
      */
     public int getFlip2(){
-        return Flip2;
+        return Back;
     }
 }
