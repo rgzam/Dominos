@@ -11,6 +11,11 @@ public class Hand {
         boneyard.getBoneyard().removeAll(hand);
     }
 
+    /**
+     * Adds all the dominos in the hand and checks
+     * for a win
+     * @return
+     */
     public int sum() {
         int totalSum = 0;
         for (Domino dom : hand) {
