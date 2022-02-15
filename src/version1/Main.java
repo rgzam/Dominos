@@ -14,6 +14,7 @@ public class Main {
         board board = new board();
         boneyard.addDominos();
         Player player = new Player(boneyard);
+        Computer computer = new Computer(boneyard);
 
         boolean madeMove = false;
         boolean shouldBreak = false;
@@ -70,12 +71,42 @@ public class Main {
                         System.out.println("Invalid selection, please try again");
                 }
             }
+            while(madeMove); {
+                madeMove = false;
+                Domino lastPlaced = board.getRow().get(board.getRow().size() - 1);
+                if(placedLeft) {
+                    lastPlaced = board.getRow().get(0);
+                    rowOne.add(0, lastPlaced.toString());
+
+                    offset.append("    ");
+                    placedLeft = false;
+                } else {
+                    rowOne.add(lastPlaced.toString());
                 }
-        while(madeMove); {
-            madeMove = false;
-            Domino lastPlaced = board.getRow().get(board.getRow().size() - 1);
+                System.out.println("Computer turn");
+                computer.placeDomino(board);
+                System.out.println("Boneyard has " + boneyard.getBoneyard().size() + "Dominoes");
+                lastPlaced = board.getRow().get(board.getRow().size() - 1);
+                rowTwo.add(lastPlaced.toString());
+
+                System.out.println(rowOne.toString());
+                System.out.println(offset + rowTwo.toString());
             }
+            if (boneyard.getBoneyard().isEmpty()) {
+                break;
+            }
+        }while (!player.accessPlayerHand().isEmpty());
+        int playerSum = player.getHand().sum();
+        int computerSum = computer.getHand().sum();
+
+        if(playerSum > computerSum) {
+            System.out.println("You had more point, you lost sorry");
+        } else {
+            System.out.println("You win");
         }
+        System.out.println("Game over!");
+                }
+
 
     }
 
