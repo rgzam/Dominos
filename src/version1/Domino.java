@@ -10,6 +10,8 @@ public class Domino {
     }
     public void flip(){
     int ogFlip = Front;
+    Front = Back;
+    Back = ogFlip;
     }
     public String toString(){
         return "[" + Front + "|" + Back + "]";

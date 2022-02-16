@@ -40,9 +40,9 @@ public class Main {
                         String choice = "r";
 
                         if (!firtTurn) {
-                            System.out.println("Left or right? (1/r)");
+                            System.out.println("Left or right? (l/r)");
                             choice = scanner.next();
-                            if (choice.equals("1")) {
+                            if (choice.equals("l")) {
                                 placedLeft = true;
                             }
                         }
@@ -64,6 +64,7 @@ public class Main {
                         if (boneyard.getBoneyard().isEmpty()) {
                             shouldBreak = true;
                         }
+                        continue;
                     case "q":
                         System.out.println("Quitting game, thanks for playing!");
                         System.exit(0);
@@ -71,7 +72,9 @@ public class Main {
                         System.out.println("Invalid selection, please try again");
                 }
             }
-            while(madeMove); {
+            firtTurn = false;
+
+            while(madeMove) {
                 madeMove = false;
                 Domino lastPlaced = board.getRow().get(board.getRow().size() - 1);
                 if(placedLeft) {
@@ -85,7 +88,7 @@ public class Main {
                 }
                 System.out.println("Computer turn");
                 computer.placeDomino(board);
-                System.out.println("Boneyard has " + boneyard.getBoneyard().size() + "Dominoes");
+                System.out.println("Boneyard has " + boneyard.getBoneyard().size() + " Dominoes");
                 lastPlaced = board.getRow().get(board.getRow().size() - 1);
                 rowTwo.add(lastPlaced.toString());
 
