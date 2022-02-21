@@ -11,8 +11,10 @@ public class Computer {
     private Hand hand = new Hand();
     private version1.Boneyard boneyard = new version1.Boneyard();
     private Boolean madeMove = false;
+    private Domino lastPlayed;
 
-public Computer(version1.Boneyard boneyard) {
+
+    public Computer(version1.Boneyard boneyard) {
     hand.populateHand(boneyard);
 }
 
@@ -43,7 +45,7 @@ public void placeDomino(board board) {
         }
         if (!madeMove) {
             drawBoneyard(boneyard);
-            System.out.println("copmuter drew from boneyard");
+            System.out.println("computer drew from boneyard");
         }
     } while (!madeMove);
     madeMove = false;
@@ -53,5 +55,9 @@ public ArrayList<Domino> accessCopmuterHand(){
 }
 public Hand getHand() {
     return hand;
+}
+
+public Domino getLastPlayed() {
+        return lastPlayed;
 }
 }

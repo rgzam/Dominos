@@ -1,10 +1,11 @@
 package version1;
-public class Domino {
+public class Domino extends Version2.Domino {
     private int Front, Back;
     private int id = 1;
 
     public Domino(int Flip1, int Flip2){
-    this.Front = Front;
+        super();
+        this.Front = Front;
     this.Back = Back;
     id++;
     }

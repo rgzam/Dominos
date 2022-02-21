@@ -15,6 +15,7 @@ public class Player {
     }
 
     public void placeDomino(board board, int dominoIndex, String flip, String sideChoice) {
+        // not sure if I need yet
         version1.Domino domino = hand.getHand().get(dominoIndex);
         if (flip.equals("y")) {
             domino.flip();
@@ -64,6 +65,14 @@ public class Player {
     }
 
     public Version2.Domino getDomino(){
+        return getDomino;
+    }
+
+    public void setSelectedDomino(Version2.Domino getDomino) {
+        this.getDomino = getDomino;
+    }
+
+    public Object setSelectedDomino() {
         return getDomino;
     }
 }
