@@ -3,6 +3,7 @@ import version1.Boneyard;
 import version1.Domino;
 import version1.board;
 
+
 import java.util.ArrayList;
 
 public class Player {
@@ -10,10 +11,22 @@ public class Player {
     private Version2.Domino getDomino = new Version2.Domino(0,0);
     private int turn =  1;
 
+    /**
+     * Populates teh hand with 7 dominoes from the boneyard
+     * @param boneyard
+     */
     public Player(version1.Boneyard boneyard) {
         hand.populateHand(boneyard);
     }
 
+    /**
+     * Handles the placement and checks to see if it's valid for the
+     * placement on the GUI
+     * @param board
+     * @param dominoIndex
+     * @param flip
+     * @param sideChoice
+     */
     public void placeDomino(board board, int dominoIndex, String flip, String sideChoice) {
         // not sure if I need yet
         version1.Domino domino = hand.getHand().get(dominoIndex);
@@ -50,29 +63,48 @@ public class Player {
             }
         }
     }
+
+    /**
+     * Draws from the Boneyard
+     * @param boneyard
+     */
     public void drawBoneyard(Boneyard boneyard){
         version1.Domino domino = boneyard.getBoneyard().get(0);
         boneyard.getBoneyard().remove(domino);
         hand.getHand().add(domino);
     }
 
+    /**
+     * getter method
+     * @return
+     */
     public ArrayList<Domino> accessPlayerHand(){
         return hand.getHand();
     }
 
+    /**
+     * getter method
+     * @return
+     */
     public Hand getHand(){
         return hand;
     }
 
+    /**
+     * getter method
+     * @return
+     */
     public Version2.Domino getDomino(){
         return getDomino;
     }
 
+    /**
+     * getter method
+     * @param getDomino
+     */
     public void setSelectedDomino(Version2.Domino getDomino) {
         this.getDomino = getDomino;
     }
 
-    public Object setSelectedDomino() {
-        return getDomino;
-    }
+
 }

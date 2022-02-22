@@ -13,18 +13,32 @@ public class Computer {
     private Boolean madeMove = false;
     private Domino lastPlayed;
 
-
+    /**
+     * populates the hand with dominos from the boneyard
+     * @param boneyard
+     */
     public Computer(version1.Boneyard boneyard) {
     hand.populateHand(boneyard);
 }
 
-public void drawBoneyard(Boneyard boneyard) {
+    /**
+     * Draws a domino from the boneyard and then removes it
+     * from the hand and the boneyard.
+     * @param boneyard
+     */
+    public void drawBoneyard(Boneyard boneyard) {
     Domino domino = boneyard.getBoneyard().get(0);
     boneyard.getBoneyard().remove(domino);
     hand.getHand().add(domino);
 }
 
-public void placeDomino(board board) {
+    /**
+     * Places the domino and keeps track of the last placed domino.
+     * Also searches for legals moves in order for the player to be able to draw
+     * from the boneyard.
+     * @param board
+     */
+    public void placeDomino(board board) {
     Domino lastPlaced = board.getRow().get(board.getRow().size() - 1);
     do {
         for(Domino dom : hand.getHand()) {
@@ -50,14 +64,28 @@ public void placeDomino(board board) {
     } while (!madeMove);
     madeMove = false;
 }
-public ArrayList<Domino> accessCopmuterHand(){
+
+    /**
+     * getter method
+     * @return
+     */
+    public ArrayList<Domino> accessCopmuterHand(){
     return hand.getHand();
 }
-public Hand getHand() {
+
+    /**
+     * getter method
+     * @return
+     */
+    public Hand getHand() {
     return hand;
 }
 
-public Domino getLastPlayed() {
+    /**
+     * getter method
+     * @return
+     */
+    public Domino getLastPlayed() {
         return lastPlayed;
 }
 }

@@ -1,9 +1,21 @@
+/**
+ * Ricardo Gonzales
+ * The Main class creates the logic behind who will win
+ * and handles the players move.
+ * In order to play their will be a drop down menu for you to hit play
+ * follow the instructions and you will see if you can beat the AI.
+ */
 package version1;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    /**
+     * Creates instances of objects, then loops to handle the players move,
+     * then initiates computer.
+     * @param args
+     */
     public static void main(String[] args) {
 
         ArrayList<String> rowOne = new ArrayList<>();

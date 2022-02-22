@@ -2,13 +2,21 @@ package version1;
 public class Domino extends Version2.Domino {
     private int Front, Back;
     private int id = 1;
-
-    public Domino(int Flip1, int Flip2){
+    /**
+     * Assigns either front or back values to their corresponding images
+     * @param Front
+     * @param Back
+     */
+    public Domino(int Front, int Back){
         super();
         this.Front = Front;
     this.Back = Back;
     id++;
     }
+
+    /**
+     * The logic is once flipped their is an origanl side.
+     */
     public void flip(){
     int ogFlip = Front;
     Front = Back;

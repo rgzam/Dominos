@@ -2,7 +2,7 @@ package version1;
 
 import java.util.ArrayList;
 
-public class board {
+public class board  {
     private ArrayList<Domino> row = new ArrayList<>();
 
     /**
